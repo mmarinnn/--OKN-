@@ -1,0 +1,65 @@
+2)
+#include<iostream>
+#include<sstream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int sum = 0, n;
+	char s[100];
+	cout << " Введите числа" << endl;
+	cin >> s;
+	stringstream d(s);
+	while(d >> n)
+	{
+		sum += n;
+	}
+	cout << sum << endl;
+return 0;
+}
+
+
+
+3)
+#include<iostream>
+#include<string.h>
+#include<windows.h>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(1251);
+	char s[100], n[] = " .", mn[] = " .";
+	char *f;
+	cout << "Ведите имя, отчество, фамилию" << endl;
+	cin.get(s, 100);
+	n[0] = s[0];
+	f = strchr(s, ' ');
+	strcpy_s(s, f + 1);
+	mn[0] = s[0];
+	f= strchr(s, ' ');
+	strcpy_s(s, f + 1);
+	strcat_s(s, " ");
+	strcat_s(s, n);
+	strcat_s(s, mn);
+	puts(s);
+}
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	char s[10];
+	char r[10];
+	int i = 0;
+	cout << "Введите имя файла" << endl;
+	cin >> s;
+	cout << "Введите расширение" << endl;
+	cin >> r;
+	if (s[i] == '.') {
+		strcpy(s+i+1, r);
+	}
+	else {
+		strcat_s(s, r);
+	}
+	cout << s << endl;
+}
